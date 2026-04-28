@@ -1,6 +1,5 @@
 public class Searcher {
 
-    // binary search - array MUST be sorted
     public int search(int[] arr, int target) {
         int low = 0;
         int high = arr.length - 1;
@@ -16,6 +15,6 @@ public class Searcher {
                 high = mid - 1;
             }
         }
-        return -1; // not found
+        return -1;
     }
 }

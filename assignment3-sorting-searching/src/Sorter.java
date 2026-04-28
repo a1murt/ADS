@@ -2,7 +2,6 @@ import java.util.Random;
 
 public class Sorter {
 
-    // basic sort - bubble sort
     public void basicSort(int[] arr) {
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
@@ -17,7 +16,6 @@ public class Sorter {
         }
     }
 
-    // advanced sort - quick sort
     public void advancedSort(int[] arr) {
         quickSort(arr, 0, arr.length - 1);
     }
@@ -41,7 +39,6 @@ public class Sorter {
                 arr[j] = temp;
             }
         }
-        // put pivot in correct place
         int temp = arr[i + 1];
         arr[i + 1] = arr[high];
         arr[high] = temp;
