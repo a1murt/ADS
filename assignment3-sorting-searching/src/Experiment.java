@@ -4,7 +4,7 @@ public class Experiment {
     private Searcher searcher = new Searcher();
 
     public long measureSortTime(int[] arr, String type) {
-        int[] copy = arr.clone(); // don't mess with original
+        int[] copy = arr.clone();
         long start = System.nanoTime();
         if (type.equals("basic")) {
             sorter.basicSort(copy);
@@ -35,15 +35,12 @@ public class Experiment {
 
             int[] randomArr = sorter.generateRandomArray(size);
 
-            // create sorted version
             int[] sortedArr = randomArr.clone();
             sorter.advancedSort(sortedArr);
 
-            // sorting on RANDOM data
             long bubbleRandom = measureSortTime(randomArr, "basic");
             long quickRandom = measureSortTime(randomArr, "advanced");
 
-            // sorting on already SORTED data
             long bubbleSorted = measureSortTime(sortedArr, "basic");
             long quickSorted = measureSortTime(sortedArr, "advanced");
 
@@ -52,7 +49,6 @@ public class Experiment {
             System.out.println("Bubble Sort (sorted): " + bubbleSorted + " ns");
             System.out.println("Quick Sort  (sorted): " + quickSorted + " ns");
 
-            // search experiment - pick a target that exists
             int target = sortedArr[size / 2];
             long searchTime = measureSearchTime(sortedArr, target);
             System.out.println("Binary Search:        " + searchTime + " ns  (target=" + target + ")");
